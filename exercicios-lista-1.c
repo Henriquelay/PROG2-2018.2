@@ -1,19 +1,49 @@
-#include <stdlib.h>
-
+#include <stdio.h>
+ 
 int main ()
 {
-        int leituraAtual = 125;
-        int leituraAnterior = 25;
-        float valorUnitario = 2.5;
-        int diferenca;
-        float valorConta;
+        char op ;
+        int num1, num2 ;
 
-        diferenca = leituraAtual - leituraAnterior;
-        valorConta = diferenca * valorUnitario;
+        printf ("A calculadora mais fodassa e menos eficiente que voce vera \n") ;
+        printf ("Que operacao deseja realizar ? Digite o simbolo dela \n") ;
+        scanf ("%c", &op) ;
 
-        return 0;
+        if (op != '+' && op != '-' && op != '*' && op != '/')
+        {
+                printf ("Codigo de operacao invalido. Tente novamente. \n") ;
+                return 0 ;
+        }
+
+        printf ("Digite os numeros a serem operados \n") ;
+        scanf ("%i%i", &num1, &num2) ;
+
+        switch (op)
+        {
+                case '+':
+                        printf ("%i \n", num1 + num2) ;
+                        break ;
+
+                case '-':
+                        printf ("%i \n", num1 - num2) ;
+                        break ;
+
+                case '*':
+                        printf ("%i \n", num1 * num2) ;
+                        break ;
+
+                case '/':
+                        if (num2 != 0)
+                        {
+                                printf ("%i \n", num1 / num2) ;
+                        }
+                        else 
+                        { 
+                                printf ("Divisao por zero NAO PODE \n") ;
+                        }
+                        break ;
+        }
+
+
+        return 0 ;
 }
-
-
-include this in the commit
- teste
