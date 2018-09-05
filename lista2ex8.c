@@ -13,7 +13,7 @@ int main(){
             printf("%d ,", num);
         }
 
-       d = d + 1; 
+       d++; 
 
        if (d >= 10){
            d = d - 10;
