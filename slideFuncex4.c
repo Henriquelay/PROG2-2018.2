@@ -1,20 +1,20 @@
 #include<stdlib.h>
 #include<stdio.h>
 
-int a, b, c;
-float x;
+float x, a, b, c;
 
-float media(int a, int b, int c);
+float media(float a, float b, float c);
 
 void main(){
 
     printf("Entre os 3 numeros para serem calculados a media: ");
-    scanf(" %d %d %d", &a, &b, &c);
+    scanf(" %f %f %f", &a, &b, &c);
 
     printf("Media aritmetica: %.2f", media(a, b, c));
+    printf("\n\n");
 }
 
-float media(int a , int b, int c){
+float media(float a , float b, float c){
 
     x = (a + b + c) / 3;
     
