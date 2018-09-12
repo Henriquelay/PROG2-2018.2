@@ -1,12 +1,19 @@
 #include<stdlib.h>
 #include<stdio.h>
 
+
+
+int teste(float x){
+    int j;
+    j = x * 2;
+    return j;
+}
+
 int main(){
     float km = 0, acc = 0;
     int i = 0, i0 = 0;
     char a;
 
-    do{
         printf("Quilometragem: ");
         scanf(" %f",&km);
 
@@ -23,20 +30,11 @@ int main(){
         
         scanf(" %c",&a);
 
-        while (a != 'S' || a != 'N'){
-            i0++;
-            printf("\nEntre apenas S ou N! ");
-            scanf(" %c", &a);
-        }
-    }while (a == 'S');
 
-    printf("\n\n======BREAKDOWN======\nNumero de carros : %d\nQuilometragem total : %f\nEntradas invalidas : %d", i, acc, i0);
+
+    printf("\n\n======BREAKDOWN======\nNumero de carros : %d\nQuilometragem total : %f\nEntradas invalidas : %d\n", i, acc, i0);
+    printf("%d", teste(km));
     
     printf("\n\n");
     return 0;
-}
-
-int teste(float x){
-
-    return 5;
 }
