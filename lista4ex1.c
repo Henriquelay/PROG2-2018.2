@@ -1,45 +1,37 @@
-#include<stdlib.h>
-#include<stdio.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
-int binario(int in, int i, int vet[]){
 
-        /* if(in == 0){
-                vet[i] = 2;
-                return;
-        } else{
-                vet[i] = in % 2;
-                in = in / 2;
-                i++;
-                binario(in, i, vet);
-        } */
-
-        for(i = 0; i < 33; i++){
-                if(in == 0){
-                        vet[i] = 2;
-                        return i;
-                } else{
-                        vet[i] = in % 2;
-                        in = in / 2;
-                }
-        }
-
-}
-
+void binario(int x, int y, int vet[]);
 
 void main(){
+    int in;
+    int vet[33] = {0}, i = 0;
 
-        int i = 0, vet[33] = {0}, in, acc;
+    printf("Digite o N inteiro:");
+    scanf(" %i", &in);
+    
+    binario(in, 0, vet);
 
-        printf("Numero a ser convertido:");
-        scanf("%i", &in);
+    printf("\n>>>Binario = ");
+    while(vet[i] != 2){
+        printf("%i ", vet[i]);
+        i++;
+    }
+    printf("\n\n");
+}
 
-        printf(">>Numero em binario: ");
+void binario(int x, int y, int vet[]){
 
-        i = binario(in ,i, vet);
-        
-        for(acc = i - 1; acc > -1; acc--){
-                printf("%i", vet[acc]);
-        }
-        
-        printf("\n>>Numero de bits: %i\n\n\n", i);
+    if(x == 0){
+        vet[y] = 2;
+        return;
+        } else{
+    vet[y] = x % 2;
+    printf(";;%d", vet[y]);
+    x = x/2;
+    printf("::%d", x);
+    binario(x, y++, vet);
+    }
 }

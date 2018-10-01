@@ -3,38 +3,21 @@
 
 
 
-int teste(float x){
-    int j;
-    j = x * 2;
-    return j;
-}
+void main(){
+    int e, i;
+    scanf(" %d", &e);
 
-int main(){
-    float km = 0, acc = 0;
-    int i = 0, i0 = 0;
-    char a;
+    int x[e];
 
-        printf("Quilometragem: ");
-        scanf(" %f",&km);
+    for(i=0;i<e;i++){
+       scanf(" %i", &x[i]);
+    }
 
-        while (km <= 0){
-            i0++;
-            printf("\nEntre apenas quilometragens validas!");
-            scanf(" %f", &km);
-        }
-
-        acc = acc + km;
-        i++;
-
-        printf("\nDeseja realizar outra consulta? (S/N) ");
-        
-        scanf(" %c",&a);
-
-
-
-    printf("\n\n======BREAKDOWN======\nNumero de carros : %d\nQuilometragem total : %f\nEntradas invalidas : %d\n", i, acc, i0);
-    printf("%d", teste(km));
-    
     printf("\n\n");
-    return 0;
+
+    for(i=0;i<e;i++){
+        printf("%i ", x[i]);
+    }
+
+    printf("\n\n");
 }
