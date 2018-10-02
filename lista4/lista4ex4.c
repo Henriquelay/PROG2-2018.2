@@ -28,5 +28,5 @@ void main(){
                         default: printf("%c", str[i]);
                 }
         }
-        printf("\nSou foda mesmo\n");
+        printf("\n\n");
 }
