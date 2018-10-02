@@ -7,7 +7,7 @@ void main(){
         char c;
 
         for(i = 0; i < 5; i++){
-                printf("X] indice %i: ", i);
+                printf("X indice %i: ", i);
                 scanf(" %d", &x[i]);
         }
 
