@@ -40,7 +40,7 @@ void printerTrans(int mat[j][i]){
 }
 
 void transpose(int mat[i][j]){
-        int mat2[j][i], x, y;
+        int mat2[j][i], x, y
 
         for(x = 0; x < j; x++){
                 for(y = 0; y < i; y++){
