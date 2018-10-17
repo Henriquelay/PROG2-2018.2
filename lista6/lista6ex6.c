@@ -6,9 +6,8 @@ int i, j;
 void printer(int mat[i][j]){
 
         for(int x = 0; x < i; x++){
-                for(int y = 0; y < j; y++){
+                for(int y = 0; y < j; y++)
                         printf("%i\t", mat[x][y]);
-                }
                 printf("\n");
         }
         printf("\n\n");
@@ -16,13 +15,12 @@ void printer(int mat[i][j]){
 
 void iniciarMatXX(int mat[i][j]){
 
-         for(int x = 0; x < i; x++){
+         for(int x = 0; x < i; x++)
                 for(int y = 0; y < j; y++){
                         
                         printf("\nInsira o numero %ix%i: ", x+1, y+1);
                         scanf(" %i", &mat[x][y]);
                 }
-        }
         
         printf("\n\n\t\tMatriz:\n");
         printer(mat);
@@ -33,23 +31,18 @@ void multMat(int mat1[i][j], int mat2[i][j], int matR[i][j]){
 
         for(x = 0; x < i * j; x++) matR[0][x] = 0;
 
-        for(y = 0; y < i; y++){
-		for(x = 0; x < j; x++){
-			for(z = 0; z < j; z++){
+        for(y = 0; y < i; y++)
+		for(x = 0; x < j; x++)
+			for(z = 0; z < j; z++)
 				matR[y][x] += mat1[y][z] * mat2[z][x];
-			}
-		}
-	}
 }
 
 void zeraMat(int mat[i][j]){
         int x, y;
         
-        for(x = 0; x < i; x++){
-                for(y = 0; y < j; y++){
+        for(x = 0; x < i; x++)
+                for(y = 0; y < j; y++)
                         mat[x][y] = 0;
-                }
-        }
 }
 
 void main(){
