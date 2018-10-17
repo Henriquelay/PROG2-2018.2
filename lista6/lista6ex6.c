@@ -31,17 +31,15 @@ void iniciarMatXX(int mat[i][j]){
 void multMat(int mat1[i][j], int mat2[i][j], int matR[i][j]){
         int acc, x, y, z;
 
+        for(x = 0; x < i * j; x++) matR[0][x] = 0;
+
         for(y = 0; y < i; y++){
-                acc = 0;
-
-                for(x = 0; x < j; x++){
-                        for(z = 0; z < j; z++){
-                                acc += mat1[y][x] * mat2[x][y];
-                        }
-                }
-
-                matR[x][y] = acc;
-        }
+		for(x = 0; x < j; x++){
+			for(z = 0; z < j; z++){
+				matR[y][x] += mat1[y][z] * mat2[z][x];
+			}
+		}
+	}
 }
 
 void zeraMat(int mat[i][j]){
