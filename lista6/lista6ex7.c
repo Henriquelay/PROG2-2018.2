@@ -47,14 +47,18 @@ int substringLinha(char str[], char mat[i][j]){
         //         }
         // return 0;
 
-        char strC[strlen(str)];
+        char strC[50] = {'\0'};
         
-        for(m = 0; m < i; m++)
-                for(n = 0; n < j; n ++)
-                        for(x = 0; x < strlen(strC); x++){
-                                
-                        }
+        // for(m = 0; m < i; m++)
+        //         for(n = 0; n < j - x; n ++){
+        //                 for(x = 0; x < strlen(strC); x++)
+        //                         strC[x] = mat[m][n + x];
+        //         if(strC == str) return 1;
+        //         }
 
+        // return 0;
+
+        
 }
 
 void main(){
@@ -65,7 +69,7 @@ void main(){
         scanf(" %i", &j);
 
         char mat[i][j];
-        char str[50];
+        char str[50] = {'\0'};
 
         printf("Palavra: ");
         scanf(" %s", str);       
@@ -73,12 +77,11 @@ void main(){
         printf("\n________________________________________");
 
         iniciarMatXX(mat);
-        
-        int x = substringLinha(str, mat);
+
         if(strlen(str) > j) printf("Eh impossivel caber essa string nas colunas da matriz seu buro");
         else{
-                if(x == 0) printf("Nao ha essa string nas linhas da matriz.");
-                else printf("Ha pelo menos uma ocorrencia dessa string nas linhas da matriz.");
+                if(substringLinha(str, mat)) printf("Ha pelo menos uma ocorrencia dessa string nas linhas da matriz.");
+                else printf("Nao ha essa string nas linhas da matriz.");
         }
         printf("\n________________________________________\n\n");
 }
