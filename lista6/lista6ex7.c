@@ -23,7 +23,7 @@ void iniciarMatXX(char mat[i][j]){
                         scanf(" %c", &mat[x][y]);
                 }
         
-        printf("\n\n\t\tMatriz:\n");
+        printf("\n\n\tMatriz:\n");
         printer(mat);
 }
 
@@ -38,18 +38,23 @@ void zeraMat(int mat[i][j]){
 int substringLinha(char str[], char mat[i][j]){
         int m, n, x, acc = 0;
 
+        // for(m = 0; m < i; m++)
+        //         for(n = 0, acc = 0; n < j - x; n++){
+        //                 for(x = 0; str[x] =! '\0'; x++){
+        //                         if(mat[m][n + x] == str[x]) acc++;
+        //                 }
+        //                 if(acc == strlen(str)) return 1;
+        //         }
+        // return 0;
+
+        char strC[strlen(str)];
+        
         for(m = 0; m < i; m++)
-                for(n = 0, acc = 0; n < j; n++){
-                        for(x = 0; str[x] =! '\0'; x++){
-                                if(mat[m][n] == str[x]) continue;
-                                else{
-                                        acc++;
-                                        break;
-                                }
+                for(n = 0; n < j; n ++)
+                        for(x = 0; x < strlen(strC); x++){
+                                
                         }
-                        if(acc == 0) return 1;
-                }
-        return 0;
+
 }
 
 void main(){
