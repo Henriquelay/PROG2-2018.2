@@ -35,10 +35,10 @@ void zeraMat(int mat[i][j]){
                         mat[x][y] = 0;
 }
 
-int issubstring(char str[], char linha[]){
+int issubstring(char str[], char linha[], int j){
         int x1, x2, acc, f;
 
-        for(f = 0; f < strlen(str); f++, acc = 0){
+        for(f = 0; f < j; f++, acc = 0){
                 for(x1 = f, x2 = 0; x1 < strlen(str); x1++, x2++){
                         if(linha[x1] == str[x2]) acc++;
                 }
@@ -50,7 +50,7 @@ int issubstring(char str[], char linha[]){
 int substringLinha(char str[], char mat[i][j]){
 
         for(int m = 0; m < i; m++)
-                if(issubstring(str, mat[m])) return 1;
+                if(issubstring(str, mat[m], j)) return 1;
 
         return 0;        
 }
