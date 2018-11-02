@@ -1,23 +1,11 @@
 #include<stdlib.h>
 #include<stdio.h>
 
-
-
 void main(){
-    int e, i;
-    scanf(" %d", &e);
+    int x[50];
 
-    int x[e];
+    printf("sizeof = %li", sizeof(x));
+    printf("\nsizeof/sizeof = %li\n\n", sizeof(x)/sizeof(int));
 
-    for(i=0;i<e;i++){
-       scanf(" %i", &x[i]);
-    }
-
-    printf("\n\n");
-
-    for(i=0;i<e;i++){
-        printf("%i ", x[i]);
-    }
-
-    printf("\n\n");
+   
 }
