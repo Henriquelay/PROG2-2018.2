@@ -1,85 +1,64 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int ehMaior(int *a, int *c){
-    if(*a > *c) return 1;
-    return 0;
-}
-
-void fazSwap(int **vet1r, int **vet2r){
-    int *swap, *vet1 = *vet1r, *vet2 = *vet2r;
-
-    swap = vet1;
-    vet1 = vet2;
-    vet2 = swap;
-    *vet1r = vet1;
-    *vet2r = vet2;    
-}
-
-void chegaPraLa(int **vet2r, int *size2, int *indicePartida){
-    int *vet2 = *vet2r;
-    for(int i = *indicePartida; i < *size2 - 1; i++)
-        vet2[i] = vet2[i+1];
-    
-    *size2--;
-    vet2 = (int*) realloc(vet2, sizeof(int) * *size2);
-}
-
-void removerOcorDup(int **vet1r, int *size1r, int **vet2r, int *size2r){
-    int *vet1 = *vet1r, *vet2 = *vet2r;
-    int tamanhofinal = *size2r;
-
-    for(int i = 0; i < *size1r; i++)
-        for(int j = 0; j < *size2r; j++)
-            if(vet1[i] == vet2[j])
-                chegaPraLa(&vet2, size2r, &j);
-}
-
-//supondo que cada vetor individualmente não tem repetição
-int* uniao(int **vet1r, int **vet2r, int *size1, int *size2){
-    int *vet1 = *vet1r, *vet2 = *vet2r;
-    if(ehMaior(size2, size1)){
-        fazSwap(&vet1, &vet2);
-    }
-    removerOcorDup(&vet1, size1, &vet2, size2);
-    //sizes será atualizado apropriadamente
-    int *resultado = (int*) malloc(sizeof(int) * (*size1 + *size2));
+int* concatInt(int *x1, int *x2, int n1, int n2, int *qtd){
+    int* result = (int*) malloc(sizeof(int) * (n1 + n2));
 
     int i = 0;
-    for(i; i < *size1; i++)
-        resultado[i] = vet1[i];
-    for(i; i< *size2; i++)
-        resultado[i] = vet2[i];
+    for(i ; i < n1; i++)
+        result[i] = x1[i];
+    *qtd = n1+n2;
+    for(i; i < *qtd; i++)
+        result[i] = x2[i - n1];
 
-    return resultado;
+    return result;
 }
+
+void chegaPraLa(int *vet, int *tam, int i, int j){
+
+    //continuar
+}
+
+void removeRepet(int *vet, *tam){
+    for(int i = 0; i < *tam; i++){
+        for(int j = 0; j < *tam; j++){
+            if(i == j) continue;
+            if(vet[i] == vet[j]) chegaPraLa(vet, tam, i, j);
+        }
+    }
+}
+
+
+int* uniao(int *x1, int *x2, int n1, int n2, int *qtd){
+    int* result = concatInt(x1, x2, n1, n2, qtd);
+
+    void removeRepet(result,qtd);
+
+    return result;
+}
+
 
 
 int main(){
-    int *vet1, *vet2, size1, size2;
+    int tamVet[2];
 
-    puts(">Tamanho do vet 1 e vet 2: ");
-    scanf("%i %i", &size1, &size2);
 
-    vet1 = (int*) malloc(sizeof(int) * size1);
-    vet2 = (int*) malloc(sizeof(int) * size2);
+    puts("Tamanho vetor 1 e 2: ");
+    scanf("%i %i", &tamVet[0], &tamVet[1]);
 
-    for(int i = 0; i < size1; i++){
-        printf(">VET1[%i] = ", i);
-        scanf("%i", &vet1[i]);
-    }
-    for(int i = 0; i < size1; i++){
-        printf(">VET2[%i] = ", i);
-        scanf("%i", &vet1[i]);
-    }
-    
-    int *resposta = uniao(&vet1, &vet2, &size1, &size2);
-    
-    puts("==RESULTADO:==");
-    for(int i = 0; i < (size1 + size2); i++)
-        printf("VET[%i] = %i\n", i, resposta[i]);
+    int *vet1 = (int*) malloc(sizeof(int) * tamVet[0]);
+    int *vet2 = (int*) malloc(sizeof(int) * tamVet[1]);
 
+    int tamResult;
+    int *vetResult = uniao(vet1, vet2, tamVet[0], tamVet[1], &tamResult);
 
     free(vet1);
     free(vet2);
+
+    puts("Resultado da uniao:\n");
+    for(int i = 0; i < tamResult; i++)
+        printf("%i ", vetResult[i]);
+
+    free(vetResult);
+    return 0;
 }
