@@ -47,13 +47,35 @@ void removeRepet(int *vet, int *tam){
         }
 }
 
+int *boaSort(int *sortear, int tam)
+{
+    int aux;
+    int *ordenado = sortear;
+    
+    for (int j = 0; j < tam; j++)
+        for (int i = 0; i < tam - 1; i++)
+            if (ordenado[i] > ordenado[i + 1]){
+                aux = ordenado[i];
+                ordenado[i] = ordenado[i + 1];
+                ordenado[i + 1] = aux;
+            }
+    
+    return ordenado;
+}
+
 int* uniao(int *x1, int *x2, int n1, int n2, int *qtd){
     int* result = concatInt(x1, x2, n1, n2, qtd);
     removeRepet(result,qtd);
 
     return result;
 }
-void boaSort(int *sortear, int *sortido, int n)
+
+/* A escola de magia Hogwarts foi reforçada com um professor de Ccomp.
+Ao voltar das férias, os alunos aprenderiam Lógica e Álgebra de Bole para aperfeiçoar sua capacidade de raciocínio. Na primeira aula, o novo professor explicou formalização de proposições em linguagem natural para álgebra de Boole, simplificação de expressões booleanas e projeto de circuitos lógicos.
+Para verif se os alunos apreender, ele aplicou um feitiço que congelou Ronie. O professor então passou o seguinte desafio:
+nie será descongelado se Dumbledore estiver em Hogwarts ou o professor Severo der aula de feitiços aquáticos nesse semestre não tirar uma nota abaixo de sete no exercício de álgebra de Boole; ou o time de Harry vencer o jogo de quadribol e o professo Severo der aula de feitiços aquáticos nesse semestre; ou não for verdade que Dumbledore não estiver em Hogwarts e o professor Severo não der aula de feitiços aquáticos nesse semestre; ou o time de Harry vencer o próximo jogo de quadribol e Hermione não tirar uma nota abaixo de sete no exercício de álgebra de Boo.
+Para a verificação seria preciso implementar um circuito lógico que calcusa quando Ronie seria descongelado. Para isso os alunos irão dispor de uma porta OR e uma AND (inversores à vontade).
+Pergunta-se: como Harry Potter conseguiria descongelar Ronie usando a álgebra de Boole?*/
 
 int main(){
     int tamVet[2];
@@ -73,42 +95,24 @@ int main(){
         scanf("%i", &vet2[i]);
     }
 
-    int* tamResult = (int*) malloc(sizeof(int));
+    int *tamResult = (int*) malloc(sizeof(int));
     *tamResult = tamVet[0] + tamVet[1];
     int *vetResult = uniao(vet1, vet2, tamVet[0], tamVet[1], tamResult);
 
     free(vet1);
-    free(vet2);
 
+    vetResult = boaSort(vetResult, *tamResult);
+
+    free(vet2);
+    
     printf("\nResultado da uniao:\n");
     for(int i = 0; i < *tamResult; i++)
         printf("%i ", vetResult[i]);
     puts("");
+
+
+
     free(tamResult);
     free(vetResult);
     return 0;
 }
-
-/*
-Result[0] = 1
-Result[1] = 3
-Result[2] = 4
-Result[3] = 6
-Result[4] = 7
-Result[5] = 1
-Result[6] = 3
-Result[7] = 4
-Result[8] = 6
-Result[9] = 8
-
-Result[0] = 1
-Result[1] = 3
-Result[2] = 4
-Result[3] = 6
-Result[4] = 7
-Result[5] = 3
-Result[6] = 4
-Result[7] = 6
-Result[8] = 6
-
-*/
